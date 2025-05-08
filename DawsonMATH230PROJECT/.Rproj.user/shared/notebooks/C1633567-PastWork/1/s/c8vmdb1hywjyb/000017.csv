@@ -1,0 +1,8 @@
+"0","load(""plate.sizes.RData"")"
+"0","library(ggplot2)"
+"0","ggplot(plates, aes(x=hunger,y=kcal.consumed,color=factor(plate.size), size=like.food))+"
+"0","  geom_point(aes(alpha = .5))+"
+"0","  scale_color_manual(values=c(""darkorange2"",""royalblue4""),labels = c(""small plate"",""large plate""))+"
+"0","  scale_size_continuous(range=c(.5,10))+"
+"0","  labs(title = ""Calorie intake is tough to perdict"",subtitle = ""At least based on on hunger and likability of food"",x=""Reported Level of Hunger"", y=""Total Number of Calories consumed"",size=""Food Likability"",color=""Size of Plate"")+"
+"0","  theme_minimal()"

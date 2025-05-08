@@ -1,0 +1,8 @@
+"0","ggplot(PHI_pitching, aes(x=Position, y=Wins)) + "
+"0","  geom_point(size=2, color = ""blue4"") + "
+"0","  geom_segment(aes(x=Position, "
+"0","                   xend=Position, "
+"0","                   y=0, "
+"0","                   yend=Wins)) + "
+"0","  labs(title=""Lollipop Chart of Wins from different types of pitchers"", "
+"0","       subtitle=""type of pitcher vs wins"") "

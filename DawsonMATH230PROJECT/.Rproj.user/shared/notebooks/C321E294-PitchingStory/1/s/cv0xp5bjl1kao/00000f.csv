@@ -1,0 +1,2 @@
+"0","PHI_pitching_recent <- PHI_pitching %>%"
+"0","  filter(Year >= (max(Year, na.rm = TRUE) - 39))"

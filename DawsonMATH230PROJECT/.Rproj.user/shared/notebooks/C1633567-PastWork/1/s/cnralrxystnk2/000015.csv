@@ -1,0 +1,5 @@
+"0","ggplot(StudentSurvey, aes(x = Height, y = after_stat(density), color = Year, fill = Year)) +"
+"0","geom_density(alpha = .7) +"
+"0","scale_color_brewer(palette = ""Dark4"") +"
+"0","scale_fill_brewer(palette = ""Dark2"")"
+"2","Warning: [38;5;232mUnknown palette: [34m""Dark4""[38;5;232m[39m"

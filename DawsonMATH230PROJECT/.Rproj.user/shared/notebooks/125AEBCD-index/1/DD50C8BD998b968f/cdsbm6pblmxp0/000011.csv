@@ -1,0 +1,6 @@
+"0","ggplot(PHI_pitching, aes(x = Year, y = Earned_Run_Average, group = Games_Played, color = Games_Played)) +"
+"0","  geom_line() +"
+"0","  labs(title = ""ERA Over each year by amount of games played"")"
+"2","Error in ggplot(PHI_pitching, aes(x = Year, y = Earned_Run_Average, group = Games_Played,  : 
+  could not find function ""ggplot""
+"

@@ -1,0 +1,8 @@
+"0","ggplot(PHI_pitching, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + "
+"0","  geom_density_ridges(alpha=0.5)+"
+"0","   scale_fill_manual(values = c(""Right"" = ""#6F263D"", ""Left"" = ""#6BACE4""))+"
+"0","  labs(title = ""FIP Based on Dominant Hand All Time"")+"
+"0","theme(plot.title = element_text(color = ""#6F263D"",size = 16, face = ""bold""),"
+"0","  axis.title.x = element_text(color = ""#6F263D""),"
+"0","  axis.title.y = element_text(color = ""#6F263D""), "
+"0","legend.title = element_text(color = ""#6F263D""))"

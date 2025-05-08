@@ -1,0 +1,14 @@
+name: "DawsonMATH230PROJECT"
+title: "My Website"
+description: |
+  Dawson Hastings, Math 230 student
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Homepage"
+      href: index.html
+    - text: "Past Viz"
+      href: about.html
+    - text: "Pitching Story"
+      href: PitchingStory.html
+output: distill::distill_article

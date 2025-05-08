@@ -1,0 +1,7 @@
+"0","ggplot(PHI_pitching, aes(x = Losses)) +"
+"0","  geom_bar() +"
+"0","   labs("
+"0","    title = ""Phillies pitchers losses"","
+"0","    x = ""losses"","
+"0","    y = ""count"""
+"0","  )"

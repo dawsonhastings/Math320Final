@@ -1,0 +1,2 @@
+"0","ggplot(PHI_pitching_2022, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + "
+"0","  geom_density_ridges(alpha=0.5)"

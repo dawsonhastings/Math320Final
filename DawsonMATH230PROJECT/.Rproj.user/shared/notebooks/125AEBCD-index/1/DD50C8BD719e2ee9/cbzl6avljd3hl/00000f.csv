@@ -1,0 +1,7 @@
+"0","library(postcards)"
+"0","create_article(file = ""index"", "
+"0","               template = ""onofre"","
+"0","               package = ""postcards"")"
+"2","Error in rmarkdown::draft(file, template, package, create_dir = create_dir,  : 
+  The file 'index.Rmd' already exists.
+"

@@ -1,0 +1,7 @@
+"0","ggplot(PHI_pitching, aes(x = Year, fill = Position)) +"
+"0","  geom_bar(position = ""dodge"") +"
+"0","  labs(title = ""Number of Pitchers by Position Over Time"")+"
+"0","   theme(plot.title = element_text(color = ""#6F263D"",size = 16, face = ""bold""),"
+"0","  axis.title.x = element_text(color = ""#6F263D""),"
+"0","  axis.title.y = element_text(color = ""#6F263D""), "
+"0","legend.title = element_text(color = ""#6F263D""))"

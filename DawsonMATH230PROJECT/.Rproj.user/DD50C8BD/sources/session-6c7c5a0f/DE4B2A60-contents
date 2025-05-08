@@ -1,0 +1,223 @@
+---
+title: "Pitching Story"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r,echo=FALSE}
+PHI_pitching=read.csv("PHI_pitching.csv", header = TRUE)
+```
+
+```{r,echo=FALSE}
+DTHcolors = c("#6BACE4", "#6F263D", "#005F61", "#5F259F", "#A5ACAF", "#D7A22A")
+```
+
+
+
+
+```{r,echo=FALSE}
+library(ggplot2)
+library(ggridges)
+library(tidyverse)
+library(dplyr)
+library(plotly)
+library(gghalves)
+```
+
+```{r,echo=FALSE}
+PHI_pitching_2023 <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) -1))
+```
+```{r,echo=FALSE}
+PHI_pitching_21stC <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) -24))
+```
+
+```{r,echo=FALSE}
+PHI_pitching_recent <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) -39))
+```
+
+
+The Phillies Have been around since 1883 and through that time have had a long and interesting statistical journey, particularly on the pitching end. To start things off is a scatterplot comparing the amount of games played of players compared to each year. This visualization is very jumbled but it is meant to be so to show you the extent to how much data there is when it comes to the franchise history. There have been well over 2000 pitchers since the inaugeral season and this visualization shows what something like that looks like. As you Can see the data varies a lot, with many pitchers having limited appearences, but some having around 70 games played, both in the 1800s and more recently in the 2000s.
+                                        GAMES PLAYED BY YEAR
+
+
+```{r,echo=FALSE}
+library(ggplot2)
+
+ggplot(data = PHI_pitching, aes(x = Year, y = Games_Played)) +
+  geom_point(color = "#6BACE4", size = 2) +
+ theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+```
+
+This Graph Below again shows just the plethora of pitchers that have played for the Phillies but it differentiates them by the type of pitcher, with CL meaning a closer(9th inning specialist), RP meaning reliever, SP meaning a Starter, and the Last bar being any pitcher that played multiple roles during a season. As You can see the team has gone through dozens of pitchers every year, especially more recently as the league has put more emphasis on arm care and management. 
+
+```{r,echo=FALSE}
+ggplot(PHI_pitching, aes(x = Year, fill = Position)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Number of Pitchers by Position Over Time")+
+   theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+```
+
+
+
+Now lets take a look at the stats for the 4 different pitcher positions. Specifically The Earned Run Average and Innings, both Important stats to determining what a pitcher can bring to the table. As You can see from the 4 different splits of pitchers,The starters have the most data in the bottom right corners, which is has the best ERAs and Most innings pitched, This is a start to showing us that The SP has been the most important pitcher in Phillies History. 
+
+
+
+```{r,echo=FALSE}
+ggplot(PHI_pitching, aes(x = Innings_Pitched, y = Earned_Run_Average)) +
+  geom_point(color = "#6BACE4") +
+  facet_wrap(~Position)+ 
+  labs(title = "Strikeouts and hits per 9 based on type of pitcher")+
+   theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+
+```
+
+
+
+
+Now I want to Look At whether Lefties or Righties remain have been better over the years. I am using a Stat here called FIP, which is fielding independent pitching, this stat is the best in ganging how good a pitcher is on his own, as it takes the defense behind him out of the equation and is just all about how the individual does.
+
+```{r,echo=FALSE}
+ggplot(PHI_pitching, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + 
+  geom_density_ridges(alpha=0.5)+
+   scale_fill_manual(values = c("Right" = "#6F263D", "Left" = "#6BACE4"))+
+  labs(title = "FIP Based on Dominant Hand All Time")+
+theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+```
+As you can see they are pretty even between the two, so we should go deeper into seeing what the best type of pitcher between the two really is, lets look at the last 40 years rather than all time and see if that makes any difference.
+
+
+```{r,echo=FALSE}
+library(dplyr)
+PHI_pitching_recent <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) - 39))
+library(ggridges)
+ggplot(PHI_pitching_recent, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + 
+  geom_density_ridges(alpha=0.5)+
+  labs(title = "FIP Based on Dominant Hand last 40 years")+
+   scale_fill_manual(values = c("Right" = "#6F263D", "Left" = "#6BACE4"))+
+theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+```
+
+
+Here, You can see how righties look to have a better FIP by a small Margin over this time period as well as lefties having bigger outliers with extremely high FIPs, but lets go ever further and do just this century next.
+
+
+```{r,echo=FALSE}
+library(ggridges)
+ggplot(PHI_pitching_21stC, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + geom_density_ridges(alpha=0.5)+ 
+  labs(title = "FIP Based on Dominant Hand Since 2000")+
+  scale_fill_manual(values = c("Right" = "#6F263D", "Left" = "#6BACE4"))+
+theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+```
+
+You can see now that lefties have even more outliers with High FIPs, and Righties have even more numbers with lower FIPS, this makes sense when you think about all the great Righties the Phillies have had, such as Roy Halladay and Brett Myers.Now lets finish this off and just go off of the last two years and see how those results compare to all of those that we have already seen. 
+
+```{r,echo=FALSE}
+library(ggridges)
+```
+
+
+```{r, echo= FALSE}
+PHI_pitching_recent <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) - 39))
+```
+
+
+```{r,echo=FALSE}
+ggplot(PHI_pitching_2023, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + geom_density_ridges(alpha=0.5)+
+  scale_fill_manual(values = c("Right" = "#6F263D", "Left" = "#6BACE4")) +
+  theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))+
+    labs(title = "FIP Based on Dominant Hand Since 2022")+
+  theme_minimal()
+```
+
+Righties win again, while both graphs are skewed right a bit, Righties hold the edge, and guys like Zack Wheeler and Aaron Nola are the Reason for that.
+
+
+
+Moving on lets look at the optimum Age for A great Phillies Pitcher, again lets use just the 21th century data for this and see we will use K to walk rate, which is another great stat to determine a pitchers dominance. Statistically the Pitchers that walk less hitters and strikeout more are the most valuable to the franchise.
+
+```{r,echo=FALSE}
+ggplot(PHI_pitching_21stC, aes(x = Year, y = Age, fill = Strikeout_Walk_Ratio)) +
+  geom_tile(color = "white") +
+  scale_fill_viridis_c(option="H") +
+  theme_minimal() +
+  labs(title = "k to walk rate by age of pitcher per year in the 2000s")+
+   theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6F263D"),
+  axis.title.y = element_text(color = "#6F263D"), 
+legend.title = element_text(color = "#6F263D"))
+```
+
+Looking at this, we are looking for that deep Blue color. What Catchers your eye first are all the outliers in the late 2000s which crazy age are all Jaime Moyer, who pitched for the Phillies until he was 47! While his Age is crazy, his Ratio was fairly mediocre. What stands out to meet is the pocket of deep dark Blue in the late 2010s and into the 2020s under and around 30. This graph does a good job in showing us that the optimal age for a phils pitchers is in his late 20s and into his 30s. 
+
+
+
+
+
+Finally for the last two Visualizations we are going to pivot to just the last two years Primarily. We have already determined that the Greats for the franchise are on average righties, typically starters due to the innings can handle, and in there late 20s, so lets see if this visualization backs us up for the last two years. Again we are going to use FIP as it will show us the clean uncut stat about who has been the best. Look for the smaller Dots you can find and see what that shows us.
+
+
+```{r, echo=FALSE}
+p <- ggplot(PHI_pitching_2023, aes(x = Position, y = Age, size =Fielding_Independent_Pitching, color = Name)) +
+  geom_point(alpha = 0.7) +
+  scale_fill_viridis_c(option="H")+
+  labs(title = "FIP for Age vs Type of Pitcher in 22/23", x= "Type of Pitcher", y = "Age")+
+  theme(plot.title = element_text(color = "#6F263D",size = 16, face = "bold"),
+  axis.title.x = element_text(color = "#6BACE4"),
+  axis.title.y = element_text(color = "#6BACE4"), 
+legend.title = element_text(color = "#6BACE4"))
+ggplotly(p)
+```
+
+
+
+As we can see again, the smallest dots for smallest FIPs all come when guys are around or just below 30. Looking for guys specifically like Aaron Nola and Zack Eflin in the SP catagory, they match the demographics we had spoken on earlier as well.
+
+There you have it, The best Pitchers all time for the Phillies are Righties, Starters, and just under 30. Looking at Most Recent Data as well, Aaron Nola fits every category. While Nola is not the best in Phillies history most likely, he as every categorical quality to be so!
+
+
+
+
+
+
+```{r, echo=FALSE}
+
+library(ggplot2)
+library(plotly)
+```
+
+
+
+
+
+
+

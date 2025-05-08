@@ -1,0 +1,6 @@
+"0","library(ggplot2)"
+"0","library(ggdensity)"
+"0","data(""iris"")"
+"0","iris = iris[complete.cases(iris), ]"
+"0",""
+"0","attach(iris)"

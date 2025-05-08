@@ -1,0 +1,21 @@
+---
+name: "Dawson230Project"
+title: "My Final Website"
+description: |
+  Dawson Hastings, Math 230 student final project
+output_dir: "docs"
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+

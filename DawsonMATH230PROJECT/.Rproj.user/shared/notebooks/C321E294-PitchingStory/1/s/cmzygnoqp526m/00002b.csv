@@ -1,0 +1,8 @@
+"0","library(ggplot2)"
+"0",""
+"0","ggplot(data = PHI_pitching, aes(x = Year, y = Games_Played)) +"
+"0","  geom_point(color = ""#6BACE4"", size = 2) +"
+"0"," theme(plot.title = element_text(color = ""#6F263D"",size = 16, face = ""bold""),"
+"0","  axis.title.x = element_text(color = ""#6F263D""),"
+"0","  axis.title.y = element_text(color = ""#6F263D""), "
+"0","legend.title = element_text(color = ""#6F263D""))"
