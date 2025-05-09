@@ -1,4 +1,0 @@
-"0","ggplot(PHI_pitching, aes(x = Innings_Pitched, y = Adjusted_Earned_Run_Average)) +"
-"0","  geom_hex() +"
-"0","  scale_fill_viridis_c() +"
-"0","  labs(title = ""Density of adjusted ERA on Innings Pitched"")"

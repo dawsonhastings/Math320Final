@@ -1,1 +1,0 @@
-{"frames":[],"message":"Error in create_article(file = \"index\", template = \"onofre\", package = \"postcards\") : \n  could not find function \"create_article\"\n"}

@@ -1,6 +1,0 @@
-"0","ggplot(PHI_pitching, aes(x = Strikeouts, y = Hits_Per_Nine_Innings)) +"
-"0","  geom_point() +"
-"0","  facet_wrap(~Position)+ labs("
-"0","    title = ""Strikeouts and hits per 9 based on type of pitcher"","
-"0","  )"
-"0",""

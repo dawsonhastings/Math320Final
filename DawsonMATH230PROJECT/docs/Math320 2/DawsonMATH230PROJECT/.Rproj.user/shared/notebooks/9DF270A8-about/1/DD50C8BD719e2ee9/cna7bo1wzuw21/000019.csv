@@ -1,9 +1,0 @@
-"0",""
-"0","ggplot(survey, aes(x = Pulse, y = after_stat(density), color = Smoke, fill = Smoke)) +"
-"0","  geom_density(alpha = .5) + "
-"0","  geom_vline(data = pulse.medians, aes(xintercept = Pulse, color = Smoke))+"
-"0","  scale_color_manual(values = mycolorchoice) + "
-"0","  scale_fill_manual(values = mycolorchoice)+"
-"0","  ggtitle(""Pulse rate of students based on smoking rate"")"
-"2","Error: object 'survey' not found
-"

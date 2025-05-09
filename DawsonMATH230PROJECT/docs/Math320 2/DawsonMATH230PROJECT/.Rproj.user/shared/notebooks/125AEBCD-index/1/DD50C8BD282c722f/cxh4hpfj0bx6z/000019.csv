@@ -1,6 +1,0 @@
-"0","ggplot(PHI_pitching, aes(x = Wild_Pitches)) + "
-"0","  geom_density(fill = ""yellow4"")+ labs("
-"0","    title = ""Density of WIld pitches"","
-"0","    x = ""wild pitches"","
-"0","    y = ""frequency"""
-"0","  )"

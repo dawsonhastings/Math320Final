@@ -1,1 +1,0 @@
-"0","curve(dnorm(x, 0, 1), from = -5, to = 5, col = 1, ylab = """", axes = FALSE, xlab = """", main = ""Normal Distribution"")"

@@ -1,4 +1,0 @@
-"0","library(pacman)"
-"0","p_load(tidyverse, ggplot2, RColorBrewer)"
-"0",""
-"0","palette_new <- colorRampPalette(colors = c(""#6BACE4"", ""#6F263D"", ""#005F61"", ""#5F259F"", ""green4"", ""orange1""))(6)"

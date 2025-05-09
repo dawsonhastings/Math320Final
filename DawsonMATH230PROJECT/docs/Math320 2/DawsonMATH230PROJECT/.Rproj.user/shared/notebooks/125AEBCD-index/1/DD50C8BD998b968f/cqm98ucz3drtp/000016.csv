@@ -1,5 +1,0 @@
-"0","ggplot(PHI_pitching_21stC, aes(x = Year, y = Age, fill = Strikeout_Walk_Ratio)) +"
-"0","  geom_tile(color = ""white"") +"
-"0","  scale_fill_viridis_c() +"
-"0","  theme_minimal() +"
-"0","  labs(title = ""k to walk rate by age of pitcher per year in the 2000s"")"

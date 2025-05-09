@@ -1,7 +1,0 @@
-"0","library(postcards)"
-"0","create_article(file=""index"","
-"0","               template = ""onofre"","
-"0","               package = ""postcards"")"
-"2","Error in create_article(file = ""index"", template = ""onofre"", package = ""postcards"") : 
-  could not find function ""create_article""
-"

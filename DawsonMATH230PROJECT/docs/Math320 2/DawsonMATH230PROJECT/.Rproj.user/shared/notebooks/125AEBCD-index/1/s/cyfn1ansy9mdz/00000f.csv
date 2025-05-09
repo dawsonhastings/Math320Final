@@ -1,2 +1,0 @@
-"0","ggplot(PHI_pitching, aes(x = Position, y = Earned_Run_Average))+"
-"0","geom_jitter(width = .7, color = ""blue3"")"

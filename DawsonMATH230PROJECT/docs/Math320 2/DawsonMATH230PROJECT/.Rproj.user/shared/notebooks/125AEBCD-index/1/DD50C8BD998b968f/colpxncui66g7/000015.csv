@@ -1,2 +1,0 @@
-"0","ggplot(PHI_pitching_2023, aes(x=Games_Played, y=Earned_Run_Average, fill = Name))+"
-"0","  geom_jitter()"

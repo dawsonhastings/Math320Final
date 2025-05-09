@@ -1,5 +1,0 @@
-"0","ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, fill=Species)) +"
-"0","  geom_hdr()+"
-"0","  geom_point(shape=21) +"
-"0","  facet_wrap(vars(Species)) + "
-"0","  scale_fill_brewer(palette = ""Dark2"")"

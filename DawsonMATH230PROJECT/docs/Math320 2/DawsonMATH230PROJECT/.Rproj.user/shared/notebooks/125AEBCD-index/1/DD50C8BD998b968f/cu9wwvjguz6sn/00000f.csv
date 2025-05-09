@@ -1,7 +1,0 @@
-"0","ggplot(PHI_pitching_21stC, aes(x = Runs_Allowed)) +"
-"0","  geom_histogram(bins = 25, fill = ""purple4"")+"
-"0","   labs("
-"0","    title = ""Phillies pitchers Runs allowed"","
-"0","    x = ""Runs allowed"","
-"0","    y = ""count"""
-"0","  )"

@@ -1,3 +1,0 @@
-"0","ggplot(PHI_pitching, aes(x = Losses)) +"
-"0","  geom_bar() +"
-"0","  coord_flip()  # if you have lots of names"

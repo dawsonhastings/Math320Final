@@ -1,2 +1,0 @@
-"0","ggplot(PHI_pitching, aes(x = Dominant_Hand, y = Strikeouts_Per_Nine_Innings)) +"
-"0","  geom_boxplot()"
