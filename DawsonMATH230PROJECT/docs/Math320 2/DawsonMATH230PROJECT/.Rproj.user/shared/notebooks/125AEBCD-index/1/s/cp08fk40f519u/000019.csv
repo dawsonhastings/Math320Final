@@ -1,0 +1,8 @@
+"0","ggplot(data = PHI_pitching, aes(x = Games_Played, y = Earned_Runs)) +"
+"0","  geom_boxplot(fill = ""gold"", color = ""red4"") +"
+"0","  theme_minimal() +"
+"0","  labs("
+"0","    title = ""Earned Runs per year"","
+"0","    x = ""Year"","
+"0","    y = ""ER"""
+"0","  )"

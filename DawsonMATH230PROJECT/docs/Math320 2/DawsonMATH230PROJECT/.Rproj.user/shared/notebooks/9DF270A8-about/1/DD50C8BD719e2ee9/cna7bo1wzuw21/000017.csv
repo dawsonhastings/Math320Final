@@ -1,0 +1,3 @@
+"0","mycolorchoice = c(""#E81828"", ""#002D72"", ""#6F263D"",""#6BACE4"",""green"",""yellow"")"
+"0","pulse.medians = aggregate(Pulse ~ Smoke, data = StudentSurvey, FUN = median)"
+"0","pulse.medians"

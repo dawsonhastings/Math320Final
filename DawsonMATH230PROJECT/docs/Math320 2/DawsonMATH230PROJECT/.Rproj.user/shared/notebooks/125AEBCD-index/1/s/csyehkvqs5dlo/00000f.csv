@@ -1,0 +1,4 @@
+"0","ggplot(PHI_pitching, aes(area = Strikeouts, fill = Position, label = Year)) +"
+"0","  geom_treemap() +"
+"0","  geom_treemap_text(colour = ""white"", place = ""center"", grow = TRUE) +"
+"0","  labs(title = ""Strikeouts by year and Position"")"

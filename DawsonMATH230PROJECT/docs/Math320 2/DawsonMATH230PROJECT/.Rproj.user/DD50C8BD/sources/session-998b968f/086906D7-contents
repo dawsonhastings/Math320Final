@@ -1,0 +1,347 @@
+---
+name: "Dawson230Project"
+title: "My Final Website"
+description: |
+  Dawson Hastings, Math 230 student final project
+output_dir: "docs"
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+```{}
+library(postcards)
+create_article(file = "index", 
+               template = "onofre",
+               package = "postcards")
+```
+
+
+
+
+```{r}
+summary(PHI_pitching)
+```
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+library(ggplot2)
+
+ggplot(data = PHI_pitching, aes(x = Wins, y = Age)) +
+  geom_point(color = "#6BACE4", size = 2) +
+  theme_minimal() +
+  labs(
+    title = "Phillies pitchers wins vs. Ages",
+    x = "Wins",
+    y = "ages"
+  )
+
+```
+
+
+```{r}
+ggplot(data = PHI_pitching, aes(x = Games_Played, y = Earned_Runs)) +
+  geom_boxplot(fill = "gold", color = "red4") +
+  theme_minimal() +
+  labs(
+    title = "Earned Runs per games played",
+    x = "games played",
+    y = "ER"
+  )
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Losses)) +
+  geom_bar() +
+   labs(
+    title = "Phillies pitchers losses",
+    x = "losses",
+    y = "count"
+  )
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Runs_Allowed)) +
+  geom_histogram(bins = 25, fill = "purple4")+
+   labs(
+    title = "Phillies pitchers Runs allowed",
+    x = "Runs allowed",
+    y = "count"
+  )
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Wild_Pitches)) + 
+  geom_density(fill = "yellow4")+ labs(
+    title = "Density of WIld pitches",
+    x = "wild pitches",
+    y = "frequency"
+  )
+```
+
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Strikeouts, y = Hits_Per_Nine_Innings)) +
+  geom_point() +
+  facet_wrap(~Position)+ labs(
+    title = "Strikeouts and hits per 9 based on type of pitcher",
+  )
+
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Age, y = Winning_Percentage)) +
+  geom_violin(fill = "orange2") +
+  geom_boxplot(width = .7, color = "green4") 
+
+```
+
+```{r}
+ggplot(PHI_pitching, aes(x = Position, y = Earned_Run_Average))+
+geom_jitter(width = .7, color = "blue3")
+```
+
+```{r}
+ggplot(PHI_pitching, aes(x = Saves, y = Year))+
+         geom_abline()
+```
+
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Year, y = Age, fill = Earned_Run_Average)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  labs(title = "ERA for Year and Age")
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Year, y = Earned_Run_Average, group = Games_Played, color = Games_Played)) +
+  geom_line() +
+  labs(title = "ERA Over each year by amount of games played")
+
+```
+
+
+
+```{r}
+ggplot(PHI_pitching, aes(x=Position, y=Wins)) + 
+  geom_point(size=2, color = "blue4") + 
+  geom_segment(aes(x=Position, 
+                   xend=Position, 
+                   y=0, 
+                   yend=Wins)) + 
+  labs(title="Lollipop Chart of Wins from different types of pitchers", 
+       subtitle="type of pitcher vs wins") 
+```
+
+
+```{}
+ggplot(PHI_pitching, aes(x=Name, y = Earned_Run_Average, label=Earned_Run_Average)) + 
+  geom_point(stat= PHI_pitching, aes(col=Year), size=6)  +
+  scale_color_manual(name="Earned Run Average per year", 
+                     labels = c("Above Average", "Below Average"), 
+                     values = c("above"="#00ba38", "below"="#f8766d")) + 
+  geom_text(color="white", size=2)
+```
+
+
+```{r}
+library(GGally)
+ggpairs(PHI_pitching[, c("Earned_Run_Average", "Strikeouts", "Walks_Allowed", "Innings_Pitched")])
+```
+
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + 
+  geom_density_ridges(alpha=0.5)
+```
+
+```{r}
+ggplot(PHI_pitching, aes(x = Year, fill = Position)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Number of Pitchers by Position Over Time")
+```
+
+```{r}
+ggplot(PHI_pitching, aes(x = Year, y = Age, fill = Strikeout_Walk_Ratio)) +
+  geom_tile(color = "white") +
+  scale_fill_viridis_c() +
+  theme_minimal() +
+  labs(title = "k to walk rate by age of pitcher per year")
+
+```
+
+```{r}
+ggplot(PHI_pitching, aes(x = Walks_Hits_Per_Inning_Pitched, y = Strikeouts)) +
+  geom_point() +
+  labs(title = "WHIP based on strikeouts")
+```
+
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Position, y = Hits_Per_Nine_Innings)) +
+  geom_violin(fill = "purple2") +
+  labs(title = "Distribution of Hits per 9 by type of pitcher")
+```
+
+```{r}
+ggplot(PHI_pitching, aes(x = Dominant_Hand, y = Strikeouts_Per_Nine_Innings)) +
+  geom_boxplot()
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(area = Strikeouts, fill = Position, label = Year)) +
+  geom_treemap() +
+  geom_treemap_text(colour = "white", place = "center", grow = TRUE) +
+  labs(title = "Strikeouts by year and Position")
+```
+
+
+```{r}
+ggplot(PHI_pitching, aes(x = Innings_Pitched, y = Adjusted_Earned_Run_Average)) +
+  geom_hex() +
+  scale_fill_viridis_c() +
+  labs(title = "Density of adjusted ERA on Innings Pitched")
+```
+
+
+```{r}
+head(PHI_pitching)
+```
+
+
+```{r}
+library(dplyr)
+
+PHI_pitching_recent <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) - 39))
+
+```
+
+
+
+```{r}
+ggplot(PHI_pitching_recent, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + 
+  geom_density_ridges(alpha=0.5)
+```
+
+
+```{r}
+library(dplyr)
+
+PHI_pitching_21stC <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) - 24))
+
+```
+
+
+```{r}
+ggplot(PHI_pitching_21stC, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + 
+  geom_density_ridges(alpha=0.5)
+```
+```{r}
+ggplot(PHI_pitching_21stC, aes(x = Position, y = Earned_Run_Average))+
+geom_jitter(width = .7, color = "blue3")
+```
+
+
+```{r}
+ggplot(PHI_pitching_21stC, aes(x = Year, y = Age, fill = Strikeout_Walk_Ratio)) +
+  geom_tile(color = "white") +
+  scale_fill_viridis_c() +
+  theme_minimal() +
+  labs(title = "k to walk rate by age of pitcher per year in the 2000s")
+```
+
+```{r}
+
+```
+
+```{r}
+ggplot(PHI_pitching_21stC, aes(x = Position, y = Hits_Per_Nine_Innings)) +
+  geom_violin(fill = "purple2") +
+  labs(title = "Distribution of Hits per 9 by type of pitcher")
+```
+```{r}
+ggplot(PHI_pitching_21stC, aes(x = Runs_Allowed)) +
+  geom_histogram(bins = 25, fill = "purple4")+
+   labs(
+    title = "Phillies pitchers Runs allowed",
+    x = "Runs allowed",
+    y = "count"
+  )
+```
+```{r}
+library(dplyr)
+
+PHI_pitching_2023 <- PHI_pitching %>%
+  filter(Year >= (max(Year, na.rm = TRUE) - 1))
+```
+
+
+```{r}
+ggplot(PHI_pitching_2023, aes(x = Year, y = Age, fill = Strikeout_Walk_Ratio)) +
+  geom_tile(color = "white") +
+  scale_fill_viridis_c() +
+  theme_minimal() +
+  labs(title = "k to walk rate by age of pitcher per year in the 2000s")
+```
+
+```{r}
+ggplot(PHI_pitching_2023, aes(x = Fielding_Independent_Pitching, y=Dominant_Hand, fill = Dominant_Hand)) + 
+  geom_density_ridges(alpha=0.5)
+```
+
+```{r}
+ggplot(PHI_pitching_2023, aes(x=Games_Played, y=Earned_Run_Average, fill = Name))+
+  geom_jitter()
+```
+```{r}
+ggplot(PHI_pitching_2023, aes(x = Innings_Pitched, y = Adjusted_Earned_Run_Average)) +
+  geom_hex() +
+  scale_fill_viridis_c() +
+  labs(title = "Density of adjusted ERA on Innings Pitched")
+```
+
+```{r}
+palette("#DF536B","#61D04F","#CD0BBC")
+```
+
+```{r}
+plot(1:8, 1:8, col=1:8, pch=19, cex=3, xlab="", ylab="")
+```
+```{r}
+colors()[1:20]
+```
+
+```{r}
+library(pacman)
+p_load(tidyverse, ggplot2, RColorBrewer)
+
+palette_new <- colorRampPalette(colors = c("#6BACE4", "#6F263D", "#005F61", "#5F259F", "green4", "orange1"))(6)
+```
+
+
+

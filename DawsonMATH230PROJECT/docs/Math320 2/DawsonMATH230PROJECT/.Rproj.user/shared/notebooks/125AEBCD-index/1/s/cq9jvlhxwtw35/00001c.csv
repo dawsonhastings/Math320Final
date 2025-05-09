@@ -1,0 +1,3 @@
+"0","ggplot(PHI_pitching, aes(x = Walks_Hits_Per_Inning_Pitched, y = Strikeouts)) +"
+"0","  geom_point() +"
+"0","  labs(title = ""WHIP based on strikeouts"")"
